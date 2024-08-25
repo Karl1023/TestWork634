@@ -136,7 +136,7 @@ function ajax_request() {
             LEFT JOIN 
                 wp_postmeta AS m2 ON (wp_posts.ID = m2.post_id AND m2.meta_key = 'longitude')
             WHERE 
-                wp_terms.name <> 'Uncategorized' AND wp_posts.post_title LIKE '".$searchTerm."%'"); 
+                wp_terms.name <> 'Uncategorized' AND wp_posts.post_title LIKE '".$searchTerm."%' AND wp_posts.post_status = 'publish'"); 
 
         foreach ($posts as $post){
             echo "<tr>";
